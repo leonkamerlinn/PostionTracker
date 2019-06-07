@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.leon.positiontracker.ui.activity.main.MainViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/bottomSheetLinearLayout"
+            layout="@layout/bottom_sheet"
+            bind:viewModel="@{viewModel}"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_smlarge"
+            android:clickable="true"
+            android:tint="@android:color/white"
+            app:fabSize="normal"
+            app:layout_anchor="@id/bottomSheetLinearLayout"
+            app:layout_anchorGravity="top|end"
+            app:rippleColor="@android:color/white"
+            app:srcCompat="@drawable/ic_pin_drop"
+            android:focusable="true" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
